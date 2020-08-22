@@ -27,18 +27,23 @@ activities = [
 
 emotions = [
     {
-        emotionName: 'Physical',
+        emotionName: 'Energetic',
         emotionCategory: physicalCategoryVar,
         emotionPicked: false
     },
     {
-        emotionName: 'Mental',
+        emotionName: 'Smart',
         emotionCategory: mentalCategoryVar,
         emotionPicked: false
     },
     {
-        emotionName: 'Emotional',
+        emotionName: 'Wild',
         emotionCategory: emotionalCategoryVar,
+        emotionPicked: false
+    },
+    {
+        emotionName: 'Jittery',
+        emotionCategory: physicalCategoryVar,
         emotionPicked: false
     }
 ]
@@ -67,15 +72,15 @@ chooseCategory = () => {
     emotionalCategory = 0;
 
     emotions.map( currentEmotion => {
-        if (currentEmotion.emotionCategory.includes('Physical')) {
+        if (currentEmotion.emotionCategory.includes(physicalCategoryVar)) {
             if (currentEmotion.emotionPicked == true) {
                 physicalCategory = physicalCategory + 1;
             }
-        } else if (currentEmotion.emotionCategory.includes('Mental')) {
+        } else if (currentEmotion.emotionCategory.includes(mentalCategoryVar)) {
             if (currentEmotion.emotionPicked == true) {
                 mentalCategory = mentalCategory + 1;
             }
-        } else if (currentEmotion.emotionCategory.includes('Emotional')) {
+        } else if (currentEmotion.emotionCategory.includes(emotionalCategoryVar)) {
             if (currentEmotion.emotionPicked == true) {
                 emotionalCategory = emotionalCategory + 1;
             }
@@ -93,7 +98,7 @@ chooseEmotionsPicked = (physical, mental, emotional) => {
     //function should check through the emotions and see if they have been clicked.
     sortMe = [physical, mental, emotional]
     chosenCategory = sortMe.sort((a, b) => b - a);
-    
+    console.log(chosenCategory)
     if (chosenCategory[0] = physical) {
         saveCategoryAndNewPage('physical')
     } else if (chosenCategory[0] = mental) {
